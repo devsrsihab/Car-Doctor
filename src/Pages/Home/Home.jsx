@@ -1,5 +1,6 @@
 import About from "./About";
 import Slider from "./Banner/Slider";
+import LocationAdress from "./LocationAdress";
 import Services from "./Services";
 
 const Home = () => {
@@ -8,6 +9,7 @@ const Home = () => {
       <Slider />
       <About />
       <Services />
+      <LocationAdress/>
     </>
   );
 };
