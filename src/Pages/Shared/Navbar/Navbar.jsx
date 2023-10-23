@@ -1,6 +1,7 @@
 import MenuItems from "./MenuItems";
 import doctorLogo from "../../../assets/logo.svg";
 import { AiOutlineSearch,AiOutlineShopping } from "react-icons/ai";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
@@ -33,13 +34,19 @@ const Navbar = () => {
         </div>
         {/* desktop  logo */}
         <div className="doctor-logo hidden lg:block w-24 ">
+          <Link to='/'>
           <img src={doctorLogo} className=" w-full h-full " />
+          </Link>
+          
         </div>
       </div>
       <div className="navbar-center items-center   lg:flex">
         {/* mobile logo logo */}
         <div className="doctor-logo lg:hidden w-16 ">
+          <Link to='/'>
           <img src={doctorLogo} className=" w-full h-full " />
+          </Link>
+          
         </div>
 
         <ul className="menu hidden text-lg font-semibold lg:flex menu-horizontal px-1">
