@@ -24,7 +24,7 @@ const Services = () => {
   return (
     <div className="services-wraper text-center py-20">
       <SectionHeading />
-      <div className="services py-20 gap-6 grid grid-cols-3 ">
+      <div className="services pt-20 mb-20 pb-10 gap-6 grid grid-cols-3 ">
         {
             services?.map(service =>
                 <Service key={service?._id} service={service} />

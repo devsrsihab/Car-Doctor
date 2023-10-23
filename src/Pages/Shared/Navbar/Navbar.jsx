@@ -25,7 +25,7 @@ const Navbar = () => {
           </label>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-white rounded-box w-52"
+            className="menu menu-sm text-lg font-semibold dropdown-content mt-3 z-[1] p-2 shadow bg-white rounded-box w-52"
           >
             {/* menu items */}
             <MenuItems />
@@ -42,7 +42,7 @@ const Navbar = () => {
           <img src={doctorLogo} className=" w-full h-full " />
         </div>
 
-        <ul className="menu hidden lg:flex menu-horizontal px-1">
+        <ul className="menu hidden text-lg font-semibold lg:flex menu-horizontal px-1">
           {/* menu items */}
           <MenuItems />
         </ul>
