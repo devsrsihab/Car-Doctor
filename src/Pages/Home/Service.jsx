@@ -1,21 +1,23 @@
-// import PropTypes from "prop-types";
+import PropTypes from "prop-types";
 
 import { AiOutlineArrowRight } from "react-icons/ai";
 
-const Service = () => {
+const Service = ({service}) => {
+    const {title,img,price } = service
   return (
     <div className="card  p-5  bg-base-100 border ">
       <div className="card-body gap-y-6 px-0 py-4 ">
-        <figure className="rounded-lg">
+        <figure className="rounded-lg h-[210px] ">
           <img
-            src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg"
+            className="h-full w-full object-cover"
+            src={img}
             alt="Shoes"
           />
         </figure>
-        <h2 className="title text-2xl font-bold ">Electrical System</h2>
+        <h2 className="title text-start text-2xl font-bold ">{title}</h2>
         <div className="card-price flex items-center justify-between">
           <div className="price text-xl font-semibold text-[#FF3811] ">
-            Price : $20.00
+            Price : ${price}
           </div>
           <div className="icon text-2xl text-[#FF3811] ">
             <AiOutlineArrowRight />
@@ -26,6 +28,9 @@ const Service = () => {
   );
 };
 
-// Service.propTypes = {};
+Service.propTypes = {
+  service: PropTypes.object.isRequired,
+
+};
 
 export default Service;
