@@ -19,7 +19,7 @@ const Slider = () => {
 
 
 
-  return <div className="carousel h-[600px] w-full">
+  return <div className="carousel rounded-lg mt-20 h-[600px] w-full">
     {
         slideProps.map((slider,index) => <Slide
          key={index}

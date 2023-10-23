@@ -1,11 +1,13 @@
-import Slider from "./Banner/Slider"
+import About from "./About";
+import Slider from "./Banner/Slider";
 
 const Home = () => {
   return (
     <>
-    <Slider />
+      <Slider />
+      <About />
     </>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
