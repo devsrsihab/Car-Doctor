@@ -1,9 +1,11 @@
+import { Link } from "react-router-dom";
+
 const MenuItems = () => {
   return (
     <>
                                             
       <li>
-        <a>Home</a>
+      <Link to='/' >Home</Link>
       </li>
       <li>
         <a>About</a>
@@ -16,6 +18,9 @@ const MenuItems = () => {
       </li>
       <li>
         <a>Contact</a>
+      </li>
+      <li>
+        <Link to='/signup' >Sign Up</Link>
       </li>
     </>
   );
