@@ -1,5 +1,5 @@
 import { AiFillLinkedin, AiOutlineGoogle, AiOutlineInstagram, AiOutlineTwitter } from "react-icons/ai";
-import doctorLogo from "../../../assets/logo.svg";
+import doctorLogo from "../../../assets/footerLogo.svg";
 
 
 
