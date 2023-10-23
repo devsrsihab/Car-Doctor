@@ -8,7 +8,7 @@ const MainLayouts = () => {
         <div className="doctor-navbar">
           <Navbar/>
         </div>
-        <div className="outlet my-10">          
+        <div className="outlet ">          
           <Outlet />
         </div>
         <div className="doctor-footer">

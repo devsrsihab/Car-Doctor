@@ -1,7 +1,10 @@
+import Slider from "./Banner/Slider"
 
 const Home = () => {
   return (
-    <div>Home</div>
+    <>
+    <Slider />
+    </>
   )
 }
 
