@@ -29,9 +29,14 @@ const MenuItems = () => {
         <NavLink to="/contact">Contact</NavLink>
       </li>
       {user  ? (
+        <>
         <li>
         <a onClick={handleLogout} className="cursor-pointer" >Log Out</a>
       </li>
+      <li>
+            <NavLink to="/orders">My Orders</NavLink>
+          </li>
+      </>
       )  : (
         <>
           <li>

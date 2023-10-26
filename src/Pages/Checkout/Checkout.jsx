@@ -1,9 +1,13 @@
 import axios from "axios";
+import { useContext } from "react";
 import { useLoaderData } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { AuthContext } from "../../Providers/AuthProvider";
 
 const Checkout = () => {
+  // use context for eimail 
+  const {user} = useContext(AuthContext)
   const service = useLoaderData();
   const {_id,img,title, price} = service
   // toaster
@@ -21,12 +25,11 @@ const Checkout = () => {
 
     const form = e.target
     const name = form.name.value 
-    const email = form.email.value 
     const date = form.date.value
 
     const order = {
       customerName: name,
-      email,
+      email: user.email,
       orderDate: date,
       serviceId: _id,
       img,
@@ -85,21 +88,7 @@ const Checkout = () => {
                     required
                   />
                 </div>
-                <div className="form-control w-full mb-6">
-                  <label className="label text-lg font-semibold mb-5">
-                    <span className="label-text">Email</span>
-                  </label>
-                  <input
-                    type="email"
-                    placeholder="Your email"
-                    className="input input-bordered border-[#E8E8E8] h-16 transition ease-in-out delay-150 outline-none focus:outline-none focus:border-black/70 "
-                    required
-                    name="email"
-                  />
-                </div>
-              </div>
-              <div className="form-row flex ">
-              <div className="form-control w-full  mb-6">
+                <div className="form-control w-full  mb-6">
                 <label className="label text-lg capitalize font-semibold mb-5">
                   <span className="label-text">Date</span>
                 </label>
@@ -112,6 +101,7 @@ const Checkout = () => {
                 />
               </div>
               </div>
+
 
       
             </div>

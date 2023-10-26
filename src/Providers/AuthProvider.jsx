@@ -41,8 +41,6 @@ const AuthProvider = ({ children }) => {
       // console.log(`on State change ${createUser}`);
       setUser(currentUser);
       setLoading(false)
-      console.log(currentUser);
-
     });
 
     return () => {
