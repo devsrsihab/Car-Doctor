@@ -26,24 +26,11 @@ const Orders = () => {
     <>
       <div className="overflow-x-auto py-10">
         <table className="table">
-          {/* head */}
-          {/* <thead>
-            <tr>
-              <th>
-                <label>
-                  <input type="checkbox" className="checkbox" />
-                </label>
-              </th>
-              <th>Name</th>
-              <th>Job</th>
-              <th>Favorite Color</th>
-              <th></th>
-            </tr>
-          </thead> */}
+
           <tbody>
             {/* row 1 */}
             {
-                orders?.map(order => 
+                orders.map(order => 
             <tr key={order._id} >
               <th>
                 <label>
@@ -85,16 +72,7 @@ const Orders = () => {
 )
 }
           </tbody>
-          {/* foot */}
-          {/* <tfoot>
-            <tr>
-              <th></th>
-              <th>Name</th>
-              <th>Job</th>
-              <th>Favorite Color</th>
-              <th></th>
-            </tr>
-          </tfoot> */}
+
         </table>
       </div>
     </>

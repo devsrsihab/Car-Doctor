@@ -53,7 +53,7 @@ const Checkout = () => {
 
   return (
     <div className="checkout">
-      <div className="checkout-header relative rounded-md z-20   h-[300px] bg-gradient-to-r from-[#151515] to-[rgba(21, 21, 21, 0.00)] h-full w-full items-center  flex  text-white mt-10 mb-20 ">
+            <div className="checkout-header relative rounded-md z-20   h-[300px] bg-gradient-to-r from-[#151515] to-[rgba(21, 21, 21, 0.00)] w-full items-center  flex  text-white mt-10 mb-20 ">
         <div className="bg-gradient-to-r from-[#151515] to-[rgba(21, 21, 21, 0.00)] h-full w-full">
           <img
             src="../../../src/assets/images/checkout/checkout.png"
