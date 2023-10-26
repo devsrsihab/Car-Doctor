@@ -24,6 +24,8 @@ const Signup = () => {
       .then((result) => {
         const ueerinfo = result.user;
         console.log(ueerinfo);
+        navigator('/')
+
       })
       .catch((error) => {
         const errorCode = error.code;

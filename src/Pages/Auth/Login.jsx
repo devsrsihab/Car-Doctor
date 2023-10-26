@@ -1,10 +1,34 @@
 
 
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import loginForm from "../../assets/images/login/login.svg";
 import { BiLogoFacebook,BiLogoLinkedin,BiLogoGoogle } from "react-icons/bi";
+import { useContext } from "react";
+import { AuthContext } from "../../Providers/AuthProvider";
 
 const Login = () => {
+  // use navigate
+  const navigate = useNavigate()
+  // signIn context
+  const {signIn} = useContext(AuthContext)
+  // login handler
+  const handleLoginForm = (e) => {
+    e.preventDefault();
+
+    const form = e.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    signIn(email, password)
+    .then((result) => {
+      console.log(result);
+      navigate('/')
+    })
+    .catch((error) => {
+     console.log(error);
+    });
+  }
+
+
   return (
     <div className="signup py-8">
     <div className="hero bg-base-200">
@@ -13,7 +37,7 @@ const Login = () => {
           <img src={loginForm} alt="form-righ-img" />
         </div>
         <div className="form card  w-1/2   shadow-2xl bg-base-100">
-          <form className="card-body">
+          <form onSubmit={handleLoginForm} className="card-body">
             {/* form heading */}
             <h2 className="text-4xl text-center font-bold mb-20">Login</h2>
 
@@ -26,17 +50,19 @@ const Login = () => {
                 placeholder="Your email"
                 className="input input-bordered border-[#E8E8E8] h-16 transition ease-in-out delay-150 outline-none focus:outline-none focus:border-black/70 "
                 required
+                name="email"
               />
             </div>
             <div className="form-control mb-6">
               <label className="label text-lg capitalize font-semibold mb-5">
-                <span className="label-text">Confirm Password</span>
+                <span className="label-text"> Password</span>
               </label>
               <input
                 type="email"
                 placeholder="Your password"
                 className="input input-bordered border-[#E8E8E8] h-16 transition ease-in-out delay-150 outline-none focus:outline-none focus:border-black/70 "
                 required
+                name="password"
               />
             </div>
 
