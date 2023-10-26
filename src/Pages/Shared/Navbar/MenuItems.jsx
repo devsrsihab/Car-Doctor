@@ -30,7 +30,7 @@ const MenuItems = () => {
       </li>
       {user  ? (
         <li>
-        <a onClick={handleLogout} className="cursor-pointer" >logOut</a>
+        <a onClick={handleLogout} className="cursor-pointer" >Log Out</a>
       </li>
       )  : (
         <>

@@ -10,7 +10,7 @@ const Login = () => {
   // use navigate
   const navigate = useNavigate()
   // signIn context
-  const {signIn} = useContext(AuthContext)
+  const {signIn,signWithGoogle} = useContext(AuthContext)
   // login handler
   const handleLoginForm = (e) => {
     e.preventDefault();
@@ -27,6 +27,16 @@ const Login = () => {
      console.log(error);
     });
   }
+
+   // sign with google
+   const handleFormSignWithGoogle = () => {
+    signWithGoogle()
+      .then((result) => {
+        console.log(result)
+        navigate('/')
+      })
+      .catch((error) => console.log(error));
+  };
 
 
   return (
@@ -76,7 +86,7 @@ const Login = () => {
               <div className="footer-icons flex gap-6">
                   <div className="icon text-2xl p-4 rounded-full bg-[#F5F5F8] flex justify-center items-center "><BiLogoFacebook/></div>
                   <div className="icon text-2xl p-4 rounded-full bg-[#F5F5F8] flex justify-center items-center "><BiLogoLinkedin/></div>
-                  <div className="icon text-2xl p-4 rounded-full bg-[#F5F5F8] flex justify-center items-center "><BiLogoGoogle/></div>
+                  <div onClick={handleFormSignWithGoogle} className="icon cursor-pointer text-2xl p-4 rounded-full bg-[#F5F5F8] flex justify-center items-center "><BiLogoGoogle/></div>
               </div>
               <h2>Already have an account? <Link to={'/signup'} className="text-[#FF3811] font-semibold">Sign Up</Link> </h2>
 
