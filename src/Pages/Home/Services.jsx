@@ -11,7 +11,7 @@ const Services = () => {
     // make a async request
     const getSerivces = async() => {
       try {
-        const response = await axios.get('../../src/assets/services.json');
+        const response = await axios.get('http://localhost:3000/SERVICES');
         setServices(response.data);
       } catch (error) {
         console.error(error);
