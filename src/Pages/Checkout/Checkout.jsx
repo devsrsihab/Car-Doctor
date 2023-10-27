@@ -34,7 +34,8 @@ const Checkout = () => {
       serviceId: _id,
       img,
       title,
-      price
+      price,
+      status: 0,
     }
 
     // axios order post request
