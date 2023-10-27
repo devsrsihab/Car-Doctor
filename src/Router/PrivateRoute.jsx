@@ -1,12 +1,14 @@
 import { useContext } from "react"
 import { AuthContext } from "../Providers/AuthProvider"
 import PropTypes from 'prop-types'
-import { Navigate } from "react-router-dom"
+import { Navigate, useLocation } from "react-router-dom"
 
 const PrivateRoute = ({children}) => {
   // use user context
   const {user,loading} = useContext(AuthContext)
-
+  // locations
+  const location = useLocation()
+  console.log(location);
   // is loading 
   if (loading) {
     return <>
@@ -16,11 +18,11 @@ const PrivateRoute = ({children}) => {
     </div>
     </>
   }
-  if (user.email) {
+  if (user) {
     return children
   }
 
-  return <Navigate to='/login' replace ></Navigate>
+  return <Navigate state={location.pathname} to='/login' replace ></Navigate>
 
 
 

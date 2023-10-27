@@ -20,11 +20,14 @@ const Signup = () => {
     const password = form.password.value;
     // signup inof
     // const userData = { name, email, password };
+
+    // create user with email and password
     createUser(email, password)
       .then((result) => {
         const ueerinfo = result.user;
         console.log(ueerinfo);
-        navigator('/')
+        navigator(`${location?.state ? location?.state : '/' }`)
+
 
       })
       .catch((error) => {
@@ -40,7 +43,8 @@ const Signup = () => {
         signWithGoogle()
           .then((result) => {
             console.log(result)
-            navigator('/')
+            navigator(`${location?.state ? location?.state : '/' }`)
+
           })
           .catch((error) => console.log(error));
       };

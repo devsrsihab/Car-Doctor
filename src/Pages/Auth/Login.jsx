@@ -1,12 +1,15 @@
 
 
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import loginForm from "../../assets/images/login/login.svg";
 import { BiLogoFacebook,BiLogoLinkedin,BiLogoGoogle } from "react-icons/bi";
 import { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
 
 const Login = () => {
+  // locations
+  const location = useLocation()
+  console.log(location.state);
   // use navigate
   const navigate = useNavigate()
   // signIn context
@@ -21,7 +24,8 @@ const Login = () => {
     signIn(email, password)
     .then((result) => {
       console.log(result);
-      navigate('/')
+      navigate(`${location?.state ? location?.state : '/' }`)
+
     })
     .catch((error) => {
      console.log(error);
@@ -33,7 +37,7 @@ const Login = () => {
     signWithGoogle()
       .then((result) => {
         console.log(result)
-        navigate('/')
+        navigate(`${location?.state ? location?.state : '/' }`)
       })
       .catch((error) => console.log(error));
   };
