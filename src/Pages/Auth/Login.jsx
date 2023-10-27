@@ -5,6 +5,7 @@ import loginForm from "../../assets/images/login/login.svg";
 import { BiLogoFacebook,BiLogoLinkedin,BiLogoGoogle } from "react-icons/bi";
 import { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
+import axios from "axios";
 
 const Login = () => {
   // locations
@@ -21,10 +22,17 @@ const Login = () => {
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
+    const userEmail = {email}
     signIn(email, password)
     .then((result) => {
       console.log(result);
-      navigate(`${location?.state ? location?.state : '/' }`)
+      // navigate(`${location?.state ? location?.state : '/' }`)
+      // generate jwt toekn
+      axios.post('http://localhost:3000/jwtToken',userEmail)
+      .then(res => {
+        console.log(res.data);
+      })
+      .catch(err => console.log(err))
 
     })
     .catch((error) => {
