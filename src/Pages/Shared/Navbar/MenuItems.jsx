@@ -1,9 +1,9 @@
-import { useContext } from "react";
 import { NavLink } from "react-router-dom";
-import { AuthContext } from "../../../Providers/AuthProvider";
+import useAuth from "../../../Hooks/useAuth";
+
 
 const MenuItems = () => {
-  const { user,logout } = useContext(AuthContext);
+  const { user,logout } =useAuth()
 
   const handleLogout = () => {
     logout()
@@ -35,6 +35,9 @@ const MenuItems = () => {
         <>
         <li>
         <a onClick={handleLogout} className="cursor-pointer" >Log Out</a>
+      </li>
+        <li>
+        <a className="text-green-500 text-bold  cursor-pointer" >{user.email}</a>
       </li>
       
       </>

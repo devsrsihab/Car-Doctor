@@ -1,12 +1,11 @@
 import { Link, useNavigate } from "react-router-dom";
 import loginForm from "../../assets/images/login/login.svg";
 import { BiLogoFacebook, BiLogoLinkedin, BiLogoGoogle } from "react-icons/bi";
-import { useContext } from "react";
-import { AuthContext } from "../../Providers/AuthProvider";
+import useAuth from "../../Hooks/useAuth";
 
 const Signup = () => {
   // use createUser
-  const { createUser, signWithGoogle } = useContext(AuthContext);
+  const { createUser, signWithGoogle } = useAuth()
   const navigator = useNavigate();
 
   // handle form

@@ -1,26 +1,12 @@
-import { useEffect, useState } from "react";
+import useServices from "../../Hooks/useServices";
 import SectionHeading from "../Shared/Section Things/SectionHeading";
 import Service from "./Service";
-import axios from "axios";
 
 const Services = () => {
-  // state fro service
-  const [services, setServices] = useState([]);
-  // useEffect for services
-  useEffect(() => {
-    // make a async request
-    const getSerivces = async() => {
-      try {
-        const response = await axios.get('http://localhost:3000/SERVICES');
-        setServices(response.data);
-      } catch (error) {
-        console.error(error);
-      }
 
-    };
-    // call getSerivces function
-    getSerivces();
-  }, []);
+// srvices data 
+const services = useServices()
+
   return (
     <div className="services-wraper text-center py-20">
       <SectionHeading />

@@ -3,9 +3,9 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import loginForm from "../../assets/images/login/login.svg";
 import { BiLogoFacebook,BiLogoLinkedin,BiLogoGoogle } from "react-icons/bi";
-import { useContext } from "react";
-import { AuthContext } from "../../Providers/AuthProvider";
+
 import axios from "axios";
+import useAuth from "../../Hooks/useAuth";
 
 const Login = () => {
   // locations
@@ -14,7 +14,7 @@ const Login = () => {
   // use navigate
   const navigate = useNavigate()
   // signIn context
-  const {signIn,signWithGoogle} = useContext(AuthContext)
+  const {signIn,signWithGoogle} = useAuth()
   // login handler
   const handleLoginForm = (e) => {
     e.preventDefault();
@@ -27,8 +27,10 @@ const Login = () => {
     .then((result) => {
       console.log(result);
       // navigate(`${location?.state ? location?.state : '/' }`)
+      
       // generate jwt toekn
-      axios.post('http://localhost:3000/jwtToken',userEmail)
+      axios.post('http://localhost:3000/jwtToken',userEmail,{
+        withCredentials: true })
       .then(res => {
         console.log(res.data);
       })

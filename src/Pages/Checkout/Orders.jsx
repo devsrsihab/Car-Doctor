@@ -5,6 +5,7 @@ import OrderRow from "./OrderRow";
 import Swal from 'sweetalert2'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import useAxiosSecure from "../../Hooks/useAxiosSecure";
 const Orders = () => {
 
     // toaster
@@ -14,26 +15,27 @@ const Orders = () => {
         className: 'foo-bar'
       });
     };
-  // use order State
-  const [orders, setorders] = useState([]);
+
 
   // user form authcontext
   const { user } = useContext(AuthContext);
+
+  // use order State
+  const [orders, setorders] = useState([]);
+  const axiosSecure = useAxiosSecure()
 
   // useEffect
   useEffect(() => {
     const getOrders = async () => {
       try {
-        const response = await axios.get(
-          `http://localhost:3000/service/orders?email=${user.email}`
-        );
+        const response = await axiosSecure.get(`/service/orders?email=${user.email}`);
         setorders(response.data);
       } catch (error) {
-        console.error(error);
+        console.log(error);
       }
     };
     getOrders();
-  }, [setorders, user.email]);
+  }, [setorders, axiosSecure,user.email]);
 
   // delete handler
   const handleDeleteRow = (_id) => {
