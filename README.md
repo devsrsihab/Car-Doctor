@@ -6,7 +6,7 @@
 Card Doctor is a website dedicated to car mechanical services. Built using React and Firebase, it allows users to access various car services and book appointments online.
 
 ## Live Demo
-Check out the live version of the project [here](https://cardoctor-4fffc.web.app/).
+Check out the live version of the project [here](https://cardoctor-4fffc.web.app).
 
 ## Features
 - Online booking system for car services
